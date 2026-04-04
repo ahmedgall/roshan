@@ -79,10 +79,16 @@
         .content-text { flex: 1; }
         .content-image { flex: 1; }
         .content-text h3 { font-size: clamp(1.3rem, 5vw, 2rem); color: var(--dark); margin-bottom: 15px; }
-        .content-image img { width: 100%; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); display: block; }
         
-        .relax-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
-        .relax-grid img { width: 100%; height: 180px; object-fit: cover; border-radius: 15px; }
+        /* ضبط الصورة لتظهر كاملة */
+        .full-img { 
+            width: 100%; 
+            height: auto; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+            display: block;
+            object-fit: contain; /* يضمن عدم قص أي جزء من الصورة */
+        }
 
         /* --- CTA Card --- */
         .cta-card {
@@ -116,8 +122,6 @@
 
         @media (max-width: 480px) {
             section { padding: 40px 5%; }
-            .relax-grid { grid-template-columns: 1fr; }
-            .relax-grid img { height: 200px; }
             .hero { padding-top: 80px; }
         }
     </style>
@@ -189,7 +193,7 @@
                 <p><strong>عاملات بالساعة مدربات وذوات خبرات عالية:</strong> نوفر لكم خدمات تنظيف بالساعة على أعلى مستوى من الاحتراف والمرونة لتناسب احتياجاتكم.</p>
             </div>
             <div class="content-image" data-aos="fade-up">
-                <img src="3.png" alt="تنظيف منزلي">
+                <img src="3.png" class="full-img" alt="تنظيف منزلي">
             </div>
         </div>
     </section>
@@ -197,10 +201,7 @@
     <section id="relaxation" style="background-color: var(--bg-soft);">
         <div class="content-box">
             <div class="content-image" data-aos="fade-up">
-                <div class="relax-grid">
-                
-                    <img src="1.png" alt="حمام مغربي">
-                </div>
+                <img src="2.png" class="full-img" alt="جلسة مساج فاخرة">
             </div>
             <div class="content-text" data-aos="fade-up">
                 <h3>تجربة استرخاء فاخرة… بدون ما تخرج من منزلك!</h3>
