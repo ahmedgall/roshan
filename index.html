@@ -59,7 +59,7 @@
         .whatsapp-btn svg { width: 30px; height: 30px; fill: white; }
 
         @media (max-width: 850px) {
-            .content-box { flex-direction: column; text-align: center; }
+            .content-box { flex-direction: column !important; text-align: center; }
             .content-image { order: -1; width: 100%; }
             .nav-links { display: none; }
             .menu-btn { display: block; }
@@ -75,10 +75,9 @@
         </div>
         <nav class="nav-links">
             <a href="#hero">الرئيسية</a>
-            <a href="#why-us">لماذا نحن</a>
             <a href="#cleaning">تنظيف بالساعة</a>
+            <a href="#bath">حمام مغربي</a>
             <a href="#relaxation">مساج واسترخاء</a>
-            <a href="#about">من نحن</a>
             <a href="#contact">اتصل بنا</a>
         </nav>
         <div class="menu-btn" onclick="toggleMenu()">☰</div>
@@ -87,10 +86,9 @@
     <div class="sidebar" id="sidebar">
         <div style="font-size: 2rem; cursor:pointer; text-align: left;" onclick="toggleMenu()">×</div>
         <a href="#hero" onclick="toggleMenu()">الرئيسية</a>
-        <a href="#why-us" onclick="toggleMenu()">لماذا نحن</a>
         <a href="#cleaning" onclick="toggleMenu()">تنظيف بالساعة</a>
+        <a href="#bath" onclick="toggleMenu()">حمام مغربي</a>
         <a href="#relaxation" onclick="toggleMenu()">مساج واسترخاء</a>
-        <a href="#about" onclick="toggleMenu()">من نحن</a>
         <a href="#contact" onclick="toggleMenu()">اتصل بنا</a>
     </div>
 
@@ -101,44 +99,38 @@
         <a href="https://wa.me/966568606854" class="btn-call db-wa-link">احجز الآن</a>
     </section>
 
-    <section id="why-us" style="background: var(--bg-soft);">
-        <div class="section-header"><h2>لماذا تختار روشان؟</h2></div>
-        <div class="features-grid">
-            <div class="feature-item" data-aos="zoom-in">
-                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                <h4>خصوصية تامة</h4>
-            </div>
-            <div class="feature-item" data-aos="zoom-in" data-aos-delay="100">
-                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                <h4>جودة عالية</h4>
-            </div>
-            <div class="feature-item" data-aos="zoom-in" data-aos-delay="200">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                <h4>دقة المواعيد</h4>
-            </div>
-        </div>
-    </section>
-
     <section id="cleaning">
         <div class="content-box">
-            <div class="content-text" data-aos="fade-up">
+            <div class="content-text" data-aos="fade-left">
                 <h3 id="db-clean-h">احصلوا على الراحة بالساعة في جميع الأوقات</h3>
                 <p id="db-clean-p">نحن في روشان نهتم بتفاصيل منزلكم لتنعموا بالراحة طوال الوقت وتقضوا الأوقات السعيدة مع من تحبون.</p>
             </div>
-            <div class="content-image" data-aos="fade-up">
+            <div class="content-image" data-aos="fade-right">
                 <img id="db-img-clean" src="4.png" class="full-img" alt="تنظيف منزلي">
             </div>
         </div>
     </section>
 
-    <section id="relaxation" style="background-color: var(--bg-soft);">
-        <div class="content-box">
-            <div class="content-image" data-aos="fade-up">
-                <img id="db-img-msg" src="2.png" class="full-img" alt="جلسة مساج فاخرة">
+    <section id="bath" style="background-color: var(--bg-soft);">
+        <div class="content-box" style="flex-direction: row-reverse;">
+            <div class="content-text" data-aos="fade-right">
+                <h3 id="db-bath-h">دلال ملكي مع الحمام المغربي الأصيل</h3>
+                <p id="db-bath-p">استمتعي بتجربة تنظيف وعناية عميقة للبشرة باستخدام أفضل المواد الطبيعية في منزلك.</p>
             </div>
-            <div class="content-text" data-aos="fade-up">
+            <div class="content-image" data-aos="fade-left">
+                <img id="db-img-bath" src="5.png" class="full-img" alt="حمام مغربي">
+            </div>
+        </div>
+    </section>
+
+    <section id="relaxation">
+        <div class="content-box">
+            <div class="content-text" data-aos="fade-left">
                 <h3 id="db-msg-h">تجربة استرخاء فاخرة… بدون ما تخرج من منزلك!</h3>
                 <p id="db-msg-p">نقدم جلسات مساج منزلية بأيدي مختصين محترفين لراحة جسدية ونفسية متكاملة.</p>
+            </div>
+            <div class="content-image" data-aos="fade-right">
+                <img id="db-img-msg" src="2.png" class="full-img" alt="جلسة مساج فاخرة">
             </div>
         </div>
     </section>
@@ -179,32 +171,44 @@
         AOS.init({ duration: 800, once: true });
         function toggleMenu() { document.getElementById('sidebar').classList.toggle('active'); }
 
-        // إعدادات فايربيس المحدثة لمشروع vexa-4b2fb
+        // إعدادات فايربيس المحدثة لشركة Fixaa Arab
         const firebaseConfig = {
-            apiKey: "AIza...", // حط الـ API Key بتاعك هنا
+            apiKey: "AIzaSy...", // الـ API Key بتاعك
             authDomain: "vexa-4b2fb.firebaseapp.com",
             databaseURL: "https://vexa-4b2fb-default-rtdb.firebaseio.com",
             projectId: "vexa-4b2fb",
             storageBucket: "vexa-4b2fb.appspot.com",
-            appId: "1:..." // حط الـ App ID بتاعك هنا
+            appId: "1:..." // الـ App ID بتاعك
         };
         
         firebase.initializeApp(firebaseConfig);
         const db = firebase.database();
 
-        // سحب البيانات وعرضها
+        // سحب البيانات من Firebase
         db.ref('content').on('value', (snap) => {
             const val = snap.val();
             if(val) {
+                // بيانات الـ Hero
                 if(val.mainTitle) document.getElementById('db-main-title').innerText = val.mainTitle;
                 if(val.subtitle) document.getElementById('db-subtitle').innerText = val.subtitle;
                 if(val.heroDesc) document.getElementById('db-hero-desc').innerText = val.heroDesc;
+
+                // بيانات التنظيف
                 if(val.cleanH) document.getElementById('db-clean-h').innerText = val.cleanH;
                 if(val.cleanP) document.getElementById('db-clean-p').innerText = val.cleanP;
+                if(val.imgClean) document.getElementById('db-img-clean').src = val.imgClean;
+
+                // بيانات الحمام المغربي (الجديد)
+                if(val.bathH) document.getElementById('db-bath-h').innerText = val.bathH;
+                if(val.bathP) document.getElementById('db-bath-p').innerText = val.bathP;
+                if(val.imgBath) document.getElementById('db-img-bath').src = val.imgBath;
+
+                // بيانات المساج
                 if(val.msgH) document.getElementById('db-msg-h').innerText = val.msgH;
                 if(val.msgP) document.getElementById('db-msg-p').innerText = val.msgP;
-                if(val.imgClean) document.getElementById('db-img-clean').src = val.imgClean;
                 if(val.imgMsg) document.getElementById('db-img-msg').src = val.imgMsg;
+
+                // بيانات التواصل
                 if(val.waNum) {
                     document.getElementById('db-wa-num').innerText = val.waNum;
                     document.querySelectorAll('.db-wa-link').forEach(a => {
